@@ -1,0 +1,100 @@
+
+<html>
+<head>
+<title>Array Sum</title>
+<style>
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+      }
+button {
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+</style>
+
+<script >
+var sum=0;
+const array=[];
+
+for(var i=0 ; i<=100 ; i++)
+  array.push(i);
+  
+const arrayA=[...array];
+const arrayB=[...array];
+const arrayC=[...array];
+const arrayE=[...array];
+
+function SumAll(){
+sum=0; 
+for(var i=0; i<array.length; i++)
+sum+=array[i];
+ console.log(sum); 
+}
+ 
+function SumEven(){
+sum=0; 
+for(var i=0; i<array.length; i++)
+if(array[i]%2==0)
+sum+=array[i];
+ console.log(sum); 
+} 
+
+function A() {
+for(var i=0 ; i<arrayA.length ; i++){
+if(arrayA[i]%3==0){
+arrayA.splice(i,0);
+continue;
+} 
+console.log(arrayA[i]); 
+}
+}
+
+function B() {
+
+for(var i=101 ; i<=150 ; i++)
+arrayB.push(i)
+for(var i=0 ; i<arrayB.length ; i++) 
+   console.log(arrayB[i]); 
+}
+
+function C() {
+for(var i=0 ; i<arrayC.length ; i++) 
+   console.log(arrayC[i]+3); 
+}
+
+
+function D() {
+   console.log(array.slice(20,41)); 
+}
+
+function E() {
+    for (var i = array.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+		
+   console.log(array); 
+array.sort((a, b) => a - b);
+   console.log(array); 
+}
+</script>
+
+</head>
+<body>
+<div>
+      <button onclick="SumAll()" >Click Me 1 </button><br><br>
+	  <button onclick="SumEven()" >Click Me 2</button><br><br>
+      <button onclick="A()" >Button A</button><br><br>
+	  <button onclick="B()" >Button B</button><br><br>
+	  <button onclick="C()" >Button C</button><br><br>
+	  <button onclick="D()" >Button D</button><br><br>
+	  <button onclick="E()" >Button E</button><br><br>
+</div>
+</body>
+</html>
