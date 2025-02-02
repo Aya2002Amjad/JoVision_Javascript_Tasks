@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>HTML JS Tasks</title>
+   <style>
+   label{font-weight:bold}
+   </style>
+</head>
+<body>
+  <form>
+    <label >Name:</label>
+    <input type="text" id="name" placeholder="name">
+</form>
+<br>
+    <button id="submit">Submit</button>
+
+    <script>
+        document.getElementById("submit").addEventListener("click",async function() {
+            const name = document.getElementById("name").value.trim();
+            
+            if (!name) {
+                alert("Please enter your name");
+                return;
+            }
+           try {
+                const response = await fetch('https://api.agify.io?name='+name);
+                
+                if (!response.ok) {
+                    throw 'Falied response';
+                }
+
+                const data = await response.json();
+
+                alert('Your name is: '+data.name+'\nYour predicted age is: '+data.age);
+            } catch (error) {
+                alert("Error fetching age: " + error.message);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>   
+<title>HTML JS Tasks</title>
+<style>
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+      }
+button {
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+    <button id="replace">Get ip</button>
+
+    <script>
+	
+        document.getElementById("replace").addEventListener("click", async function() {
+		
+            try {
+                const response = await fetch("https://api.ipify.org?format=json");
+                if (!response.ok) {
+                    throw 'Falied Fetch';
+                }
+
+                const data = await response.json();
+                this.textContent = data.ip;	
+            } 
+			catch (error) {
+                window.alert('Error:' + error.message);
+            }
+        });
+    </script>
+
+</body>
+</html>
